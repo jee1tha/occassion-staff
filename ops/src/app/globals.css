@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+/* Dispatch desk: cool paper, deep green-black ink, one signal blue for actions.
+   Status colours are reserved for state and always ship with an icon + word. */
+:root {
+  color-scheme: light;
+  --paper: #eceeea;
+  --panel: #f7f8f5;
+  --sunk: #e3e6e1;
+  --rule: #cdd3cc;
+  --ink: #1f2a24;
+  --ink-2: #4c5850;
+  --ink-3: #6f7a72;
+  --signal: #2453c4;
+  --signal-ink: #ffffff;
+  --series-1: #2a78d6;
+  --series-1-soft: #cfe0f6;
+  --good: #1d7a45;
+  --good-soft: #dcefe2;
+  --warn: #9a6200;
+  --warn-soft: #f6ead0;
+  --bad: #b3361f;
+  --bad-soft: #f6dcd5;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --paper: #151a17;
+    --panel: #1c221e;
+    --sunk: #111512;
+    --rule: #2f3832;
+    --ink: #e4e9e3;
+    --ink-2: #b4bdb5;
+    --ink-3: #8b958d;
+    --signal: #7ea2ff;
+    --signal-ink: #0f1a33;
+    --series-1: #3987e5;
+    --series-1-soft: #22344c;
+    --good: #5cc287;
+    --good-soft: #1c3426;
+    --warn: #e0a640;
+    --warn-soft: #3a2f17;
+    --bad: #f07d64;
+    --bad-soft: #3d2019;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #151a17;
+  --panel: #1c221e;
+  --sunk: #111512;
+  --rule: #2f3832;
+  --ink: #e4e9e3;
+  --ink-2: #b4bdb5;
+  --ink-3: #8b958d;
+  --signal: #7ea2ff;
+  --signal-ink: #0f1a33;
+  --series-1: #3987e5;
+  --series-1-soft: #22344c;
+  --good: #5cc287;
+  --good-soft: #1c3426;
+  --warn: #e0a640;
+  --warn-soft: #3a2f17;
+  --bad: #f07d64;
+  --bad-soft: #3d2019;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-panel: var(--panel);
+  --color-sunk: var(--sunk);
+  --color-rule: var(--rule);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-signal: var(--signal);
+  --color-signal-ink: var(--signal-ink);
+  --color-series: var(--series-1);
+  --color-series-soft: var(--series-1-soft);
+  --color-good: var(--good);
+  --color-good-soft: var(--good-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-bad: var(--bad);
+  --color-bad-soft: var(--bad-soft);
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  background: var(--paper);
+}
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-variation-settings: "wdth" 100;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Condensed display cut: the one typographic gesture of the desk. */
+.display {
+  font-variation-settings: "wdth" 72;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  line-height: 0.95;
+}
+.num {
+  font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
